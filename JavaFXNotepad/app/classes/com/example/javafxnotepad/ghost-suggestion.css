@@ -1,0 +1,6 @@
+/* ghost‑suggestion.css */
+.code-area .paragraph-box .text.ghost-text {
+  -fx-fill: #999999;      /* color the text */
+  -fx-opacity: 0.6;       /* semi‑transparent */
+  -fx-font-style: italic; /* italic */
+}

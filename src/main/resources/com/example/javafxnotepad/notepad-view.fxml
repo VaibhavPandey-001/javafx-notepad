@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets.*?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.javafxnotepad.MainController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" >
+            <padding>
+                <Insets top="5" right="5" bottom="5" left="5" />
+            </padding>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem onAction="#handleNew" text="New" />
+                    <MenuItem onAction="#handleOpen" text="Open" />
+                    <MenuItem onAction="#handleSave" text="Save" />
+                    <MenuItem onAction="#handleSaveAs" text="Save As" />
+                    <SeparatorMenuItem />
+                    <MenuItem onAction="#handleExit" text="Exit" />
+                </Menu>
+                <Menu text="View">
+                    <CheckMenuItem fx:id="darkModeToggle" onAction="#handleDarkModeToggle" text="Dark Mode" />
+                </Menu>
+                <Menu text="Edit">
+                    <MenuItem text="Undo" onAction="#handleUndo"/>
+                    <MenuItem text="Redo" onAction="#handleRedo"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Cut" onAction="#handleCut"/>
+                    <MenuItem text="Copy" onAction="#handleCopy"/>
+                    <MenuItem text="Paste" onAction="#handlePaste"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Select All" onAction="#handleSelectAll"/>
+                </Menu>
+            </MenuBar>
+
+                <Region HBox.hgrow="ALWAYS"/>
+                <CheckBox fx:id="codeModeToggle" onAction="#handleCodeModeToggle" text="Code Mode"/>
+                <Button fx:id="executeModeToggle" text="Execute"  onAction="#handleExecuteMode"/>
+                <ComboBox fx:id="languageSelector" prefWidth="120" promptText="Select Language"/>
+
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="5" >
+            <padding>
+                <Insets top="5" right="5" bottom="5" left="5"/>
+            </padding>
+
+            <StackPane fx:id="editorPane" VBox.vgrow="ALWAYS">
+                <TextArea fx:id="textArea"/>
+            </StackPane>
+            <VBox fx:id="outputWrapper" visible="false" managed="false">
+                <Label text="Output:"/>
+                <TextArea fx:id="outputArea" wrapText="true" editable="false" prefHeight="200"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

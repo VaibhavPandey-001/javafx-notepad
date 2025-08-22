@@ -1,0 +1,107 @@
+
+.root {
+    -fx-font-family:"Consolas",monospace;
+}
+
+/* Light Mode Styles*/
+.text-area{
+    -fx-font-size: 14px;
+    -fx-control-inner-background: white;
+    -fx-text-fill:black;
+}
+
+/*Dark Mode Changes*/
+.root{
+    -fx-background-color:#2b2b2b;
+    -fx-text-fill:#dddddd;
+}
+.text-area{
+    -fx-control-inner-background:#2b2b2b;
+    -fx-text-fill:#dddddd;
+    -fx-highlight-fill: #444;
+    -fx-highlight-text-fill: white;
+}
+.check-box {
+ -fx-text-fill: #dddddd;
+  }
+  .button:hover {
+      -fx-background-color: #505355;
+  }
+.text-area .caret {
+    -fx-stroke: white;
+}
+
+
+
+.button{
+    -fx-background-color:#3c3f41;
+    -fx-text-fill:#dddddd;
+}
+.toggle-button{
+     -fx-background-color:#3c3f41;
+     -fx-text-fill:#dddddd;
+}
+.combo-box{
+    -fx-background-color:#3c3f41;
+    -fx-text-fill:#dddddd;
+    -fx-mark-color:#dddddd;
+}
+
+.combo-box .list-cell{
+     -fx-background-color:#3c3f41;
+     -fx-text-fill:#dddddd;
+}
+
+.label{
+    -fx-text-fill:#dddddd;
+}
+.menu-bar {
+    -fx-background-color: #3c3f41;
+}
+.menu-item {
+    -fx-text-fill: #dddddd;
+}
+
+
+/* 1) The popup menu background itself */
+.context-menu,
+.menu .context-menu {
+    -fx-background-color: #3c3f41;
+}
+
+/* 2) All items in a popup or the “Edit” menu dropdown */
+.context-menu .menu-item,
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #dddddd;
+}
+
+/* 3) Hover & armed states so you can see which one is selected */
+.context-menu .menu-item:hover,
+.context-menu .menu-item:armed,
+.menu-item:hover,
+.menu-item:armed {
+    -fx-background-color: #505355;
+    -fx-text-fill: white;
+}
+
+/* 4) Separator lines in those popups */
+.separator-menu-item {
+    -fx-background-color: #555555;
+}
+
+.code-area, .code-area .styled-text-area, .code-area .text {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: white;
+    -fx-font-family: Consolas, monospace;
+}
+
+.styled-text-area .text {
+    -fx-fill: white;
+
+}
+.code-area .caret {
+    -fx-stroke: white;
+}
+
+
