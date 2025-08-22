@@ -128,7 +128,7 @@ public class MainController {
         try {
             sessionTempDir = Files.createTempDirectory("javafx-notepad-");
         } catch (IOException e) {
-            showAlert("Error", "Could not create session temp dir:\n" + e.getMessage());
+            showAlert("Could not create session temp dir:\n" + e.getMessage());
         }
 
         //ShutDown clean-up Using method reference
@@ -274,7 +274,7 @@ public class MainController {
                 } catch (IOException e) {
                     logger.error("Exception occurred", e);
                     javafx.application.Platform.runLater(() -> {
-                        showAlert("Error", "Could not read the file:\n" + e.getMessage());
+                        showAlert("Could not read the file:\n" + e.getMessage());
                     });
                 }
             }).start();
@@ -295,7 +295,7 @@ public class MainController {
             System.out.println("File saved: " + currentFile.getAbsolutePath());
         } catch (IOException e) {
             logger.error("Exception occurred", e);//on console
-            showAlert("Error", "Could not save the file:\n" + e.getMessage());//on dialog_box
+            showAlert("Could not save the file:\n" + e.getMessage());//on dialog_box
         }
         isDirty = false;
         updateTitle();
@@ -305,9 +305,9 @@ public class MainController {
     //System.out.println("Save file clicked.");
 
 
-    private void showAlert(String title, String message) {
+    private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
+        alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
@@ -357,6 +357,7 @@ public class MainController {
 
         if (codeModeToggle.isSelected()) {
             shouldCheckForChanges = codeArea != null && !codeArea.getText().isEmpty();
+            assert codeArea != null;
             currentContent = codeArea.getText();
         } else {
             shouldCheckForChanges = !textArea.getText().isEmpty();
@@ -397,7 +398,7 @@ public class MainController {
         }
         if (runningProcess != null && runningProcess.isAlive()) {
             // Kill all children first
-            runningProcess.descendants().forEach(ph -> ph.destroyForcibly());
+            runningProcess.descendants().forEach(ProcessHandle::destroyForcibly);
 
             // Kill the main process
             runningProcess.destroyForcibly();
@@ -432,7 +433,7 @@ public class MainController {
                 isDirty = false;
                 updateTitle();
             } catch (IOException e) {
-                showAlert("Error", "Could not save file:\n" + e.getMessage());
+                showAlert("Could not save file:\n" + e.getMessage());
             }
         }
     }
